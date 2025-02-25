@@ -46,14 +46,14 @@ export const getCompanies = async (req, res) => {
         // Construir consulta dinámica para el filtrado
         const filterQuery = {};
         if (filter) {
-            const filterCriteria = JSON.parse(filter); // Parsear los filtros JSON
+            const filterCriteria = JSON.parse(filter);
             if (filterCriteria.category) filterQuery.category = filterCriteria.category;
             if (filterCriteria.yearsOfExperience) filterQuery.yearsOfExperience = { $gte: filterCriteria.yearsOfExperience };
             if (filterCriteria.impactLevel) filterQuery.impactLevel = filterCriteria.impactLevel;
         }
 
         // Ordenar la información, si se solicita
-        const sortQuery = sort ? JSON.parse(sort) : { name: 1 };  // Por defecto, por nombre
+        const sortQuery = sort ? JSON.parse(sort) : { name: 1 }; 
 
         // Obtener empresas filtradas y ordenadas
         const companies = await Company.find(filterQuery).sort(sortQuery);

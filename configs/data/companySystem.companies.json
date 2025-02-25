@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "67be486e89a244d1ed0a9e2d"
+  },
+  "name": "TechCorp",
+  "impactLevel": "Alto",
+  "yearsOfExperience": 10,
+  "category": "Tecnología",
+  "description": "Empresa especializada en desarrollo de software y soluciones tecnológicas.",
+  "contactEmail": "contacto@techcorp.com",
+  "contactPhone": "12345678",
+  "status": true,
+  "registrationDate": {
+    "$date": "2025-02-25T22:47:10.157Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67be49ba89a244d1ed0a9e35"
+  },
+  "name": "InnovateTech Pro",
+  "impactLevel": "Alto",
+  "yearsOfExperience": 15,
+  "category": "Tecnología",
+  "description": "Soluciones innovadoras mejoradas para la industria tecnológica.",
+  "contactEmail": "contacto@innovatechpro.com",
+  "contactPhone": "87654321",
+  "status": true,
+  "registrationDate": {
+    "$date": "2025-02-25T22:52:42.831Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67be4c6331a63d652e8fb893"
+  },
+  "name": "TribalEnterprises",
+  "impactLevel": "Bajo",
+  "yearsOfExperience": 12,
+  "category": "Tecnología",
+  "description": "Programacion innovadoras para la industria tecnológica.",
+  "contactEmail": "contacto@tribalenterprise.com",
+  "contactPhone": "12578205",
+  "status": true,
+  "registrationDate": {
+    "$date": "2025-02-25T23:04:03.922Z"
+  },
+  "__v": 0
+}]

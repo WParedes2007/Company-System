@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "58796c8d-3389-46e2-bc74-edbc4dadc2fc",
+		"name": "Companies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42475632"
+	},
+	"item": [
+		{
+			"name": "LOGIN ADMINS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \r\n \r\n  \"email\": \"admin@gmail.com\",\r\n  \r\n  \"password\": \"Admin123\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/companySystem/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"companySystem",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE COMPANY",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMzgwYTFiMzRiNDJhZTdiN2MzZDAiLCJpYXQiOjE3NDA1MjM1NzMsImV4cCI6MTc0MDUyNzE3M30.w0SMAvu8wYXOwKySUNCuKfNrkuWhJNGQutBPq_H0ulc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"TribalEnterprises\",\r\n    \"impactLevel\": \"Bajo\",\r\n    \"yearsOfExperience\": 12,\r\n    \"category\": \"Tecnología\",\r\n    \"description\": \"Programacion innovadoras para la industria tecnológica.\",\r\n    \"contactEmail\": \"contacto@tribalenterprise.com\",\r\n    \"contactPhone\": \"12578205\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/companySystem/v1/companies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"companySystem",
+						"v1",
+						"companies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COMPANY",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMzgwYTFiMzRiNDJhZTdiN2MzZDAiLCJpYXQiOjE3NDA1MjM1NzMsImV4cCI6MTc0MDUyNzE3M30.w0SMAvu8wYXOwKySUNCuKfNrkuWhJNGQutBPq_H0ulc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/companySystem/v1/companies?filter={\"category\":\"Tecnología\",\"yearsOfExperience\":10,\"impactLevel\":\"Alto\"}&sort={\"name\":1}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"companySystem",
+						"v1",
+						"companies"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "{\"category\":\"Tecnología\",\"yearsOfExperience\":10,\"impactLevel\":\"Alto\"}"
+						},
+						{
+							"key": "sort",
+							"value": "{\"name\":1}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT COMPANY",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMzgwYTFiMzRiNDJhZTdiN2MzZDAiLCJpYXQiOjE3NDA1MjM1NzMsImV4cCI6MTc0MDUyNzE3M30.w0SMAvu8wYXOwKySUNCuKfNrkuWhJNGQutBPq_H0ulc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"InnovateTech Pro\",\r\n    \"impactLevel\": \"Alto\",\r\n    \"yearsOfExperience\": 15,\r\n    \"category\": \"Tecnología\",\r\n    \"description\": \"Soluciones innovadoras mejoradas para la industria tecnológica.\",\r\n    \"contactEmail\": \"contacto@innovatechpro.com\",\r\n    \"contactPhone\": \"87654321\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/companySystem/v1/companies/67be49ba89a244d1ed0a9e35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"companySystem",
+						"v1",
+						"companies",
+						"67be49ba89a244d1ed0a9e35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET REPORTS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMzgwYTFiMzRiNDJhZTdiN2MzZDAiLCJpYXQiOjE3NDA1MjM1NzMsImV4cCI6MTc0MDUyNzE3M30.w0SMAvu8wYXOwKySUNCuKfNrkuWhJNGQutBPq_H0ulc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/companySystem/v1/companies/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"companySystem",
+						"v1",
+						"companies",
+						"report"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

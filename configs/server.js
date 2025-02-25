@@ -11,11 +11,8 @@ import companyRoutes from '../src/companies/company.routes.js'
 import Usuario from "../src/users/user.model.js";
 import { hash } from "argon2";
 
-
-
-
 const configurarMiddlewares = (app) => {
-    app.use(express.urlencoded({extended: false}));
+    app.use(express.urlencoded({ extended: false }));
     app.use(cors());
     app.use(express.json());
     app.use(helmet());
@@ -23,19 +20,21 @@ const configurarMiddlewares = (app) => {
     app.use(limiter);
 }
 
-const configurarRutas = (app) =>{
-        app.use("/companySystem/v1/auth", authRoutes);
-        app.use("/companySystem/v1/companies", companyRoutes);
-
+const configurarRutas = (app) => {
+    app.use("/companySystem/v1/auth", authRoutes);
+    app.use("/companySystem/v1/companies", companyRoutes);
 }
 
 const crearAdmin = async () => {
     try {
-        const adminExistente = await Usuario.findOne({ role: "ADMIN_ROLE" });
+        // Verifica si ya existe un usuario con el email admin@gmail.com
+        const adminExistente = await Usuario.findOne({ email: "admin@gmail.com" });
 
         if (!adminExistente) {
+            // Encriptar la contraseña
             const passwordEncriptada = await hash("Admin123");
 
+            // Crear el nuevo usuario admin
             const admin = new Usuario({
                 name: "Admin",
                 surname: "Principal",
@@ -45,7 +44,7 @@ const crearAdmin = async () => {
                 password: passwordEncriptada
             });
 
-            await admin.save();
+            await admin.save();  // Guardar el nuevo administrador en la base de datos
             console.log("Administrador creado exitosamente.");
         } else {
             console.log("El administrador ya existe.");
@@ -57,7 +56,7 @@ const crearAdmin = async () => {
 
 const conectarDB = async () => {
     try {
-        await dbConnection();
+        await dbConnection();  // Conectar a la base de datos
         console.log("Conexion Exitosa Con La Base De Datos");
     } catch (error) {
         console.log("Error Al Conectar Con La Base De Datos", error);
@@ -69,7 +68,7 @@ export const iniciarServidor = async () => {
     const port = process.env.PORT || 3000;
 
     await conectarDB();
-    await crearAdmin();
+    await crearAdmin();  // Crear el admin si no existe
     configurarMiddlewares(app);
     configurarRutas(app);
 
