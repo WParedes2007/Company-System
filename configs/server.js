@@ -7,9 +7,9 @@ import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js'
 import authRoutes from '../src/auth/auth.routes.js'
+import companyRoutes from '../src/companies/company.routes.js'
 import Usuario from "../src/users/user.model.js";
 import { hash } from "argon2";
-//import userRoutes from "../src/users/user.routes.js"
 
 
 
@@ -24,9 +24,8 @@ const configurarMiddlewares = (app) => {
 }
 
 const configurarRutas = (app) =>{
-        app.use("/onlineSale/v1/auth", authRoutes);
-        /*app.use("/onlineSale/v1/companies", userRoutes);
-        app.use("/onlineSale/v1/reports", categoryRoutes);*/
+        app.use("/companySystem/v1/auth", authRoutes);
+        app.use("/companySystem/v1/companies", companyRoutes);
 
 }
 
