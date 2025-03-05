@@ -27,14 +27,12 @@ const configurarRutas = (app) => {
 
 const crearAdmin = async () => {
     try {
-        // Verifica si ya existe un usuario con el email admin@gmail.com
+
         const adminExistente = await Usuario.findOne({ email: "admin@gmail.com" });
 
         if (!adminExistente) {
-            // Encriptar la contraseña
             const passwordEncriptada = await hash("Admin123");
 
-            // Crear el nuevo usuario admin
             const admin = new Usuario({
                 name: "Admin",
                 surname: "Principal",
@@ -44,7 +42,7 @@ const crearAdmin = async () => {
                 password: passwordEncriptada
             });
 
-            await admin.save();  // Guardar el nuevo administrador en la base de datos
+            await admin.save();  
             console.log("Administrador creado exitosamente.");
         } else {
             console.log("El administrador ya existe.");
@@ -56,7 +54,7 @@ const crearAdmin = async () => {
 
 const conectarDB = async () => {
     try {
-        await dbConnection();  // Conectar a la base de datos
+        await dbConnection(); 
         console.log("Conexion Exitosa Con La Base De Datos");
     } catch (error) {
         console.log("Error Al Conectar Con La Base De Datos", error);
@@ -68,7 +66,7 @@ export const iniciarServidor = async () => {
     const port = process.env.PORT || 3000;
 
     await conectarDB();
-    await crearAdmin();  // Crear el admin si no existe
+    await crearAdmin();  
     configurarMiddlewares(app);
     configurarRutas(app);
 
